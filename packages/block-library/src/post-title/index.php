@@ -10,13 +10,12 @@
  *
  * @return string Returns the filtered post title for the current post wrapped inside "h1" tags.
  */
-function render_block_core_post_title() {
-	global $_experimental_block;
-	if ( ! isset( $_experimental_block->context['postId'] ) ) {
+function render_block_core_post_title( $attributes, $content, $block ) {
+	if ( ! isset( $block->context['postId'] ) ) {
 		return '';
 	}
 
-	return '<h1>' . get_the_title( $_experimental_block->context['postId'] ) . '</h1>';
+	return '<h1>' . get_the_title( $block->context['postId'] ) . '</h1>';
 }
 
 /**
