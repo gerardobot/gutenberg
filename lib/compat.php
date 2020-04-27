@@ -205,7 +205,6 @@ function gutenberg_render_block_with_assigned_block_context( $pre_render, $parse
 	$context      = array( 'postId' => $post->ID );
 	$block        = new WP_Block( $parsed_block, $context );
 
-	/** This filter is documented in src/wp-includes/blocks.php */
-	return apply_filters( 'render_block', $block->render(), $parsed_block );
+	return $block->render();
 }
 add_filter( 'pre_render_block', 'gutenberg_render_block_with_assigned_block_context', 9, 2 );
